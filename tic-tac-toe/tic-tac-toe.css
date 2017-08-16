@@ -1,0 +1,14 @@
+body{
+   text-align:center;
+}
+
+.game{
+   margin-top:15px;
+   width:90px;
+   height:90px;
+   margin-left:25px;
+}
+
+.row{
+    margin-left: 22%;
+}

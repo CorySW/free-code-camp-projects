@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:900i');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900i');
+body{
+   text-align:center;
+   background-color:aquamarine;
+}
+
+.main{
+   height:511px;
+   width:511px;
+   border-radius:50%;
+   background-color:#aaaaaa;
+   margin:0 auto;
+}
+
+.btn1{
+   height:250px;
+   width:250px;
+   position:absolute;
+   background-color:#dd4b3e;
+   border-radius:100% 10% 10% 10%;
+   cursor:pointer;
+}
+
+.btn2{
+   height:250px;
+   width:250px;
+   position:absolute;
+   background-color:#ffea37;
+   border-radius:10% 100% 10% 10%;
+   margin-left:260px;
+   cursor:pointer;
+}
+
+.btn3{
+   height:250px;
+   width:250px;
+   position:absolute;
+   background-color:#3edd4b;
+   border-radius:10% 10% 10% 100%;
+   margin-top:260px;
+   cursor:pointer;
+}
+
+.btn4{
+   height:250px;
+   width:250px;
+   position:absolute;
+   background-color:#4b3edd;
+   border-radius:10% 10% 100% 10%;
+   margin-top:260px;
+   margin-left:260px;
+   cursor:pointer;
+}
+
+.mainbtn{
+   width:155px;
+   height:155px;
+   position:absolute;
+   background-color:white;
+   border-radius:50%;
+   border: solid 15px;
+   margin-top:160px;
+   margin-left:170px;
+   cursor:pointer;
+}
+
+h1{
+   font-family: 'Raleway', sans-serif;
+}
+
+#scr{
+   font-family: 'Playfair Display', serif;
+   font-size: 40%;
+   margin-top: -25%;
+}
+
+#win{
+  font-size: 25px;
+  margin-top: 60px;
+}
+
+.normal{
+    height:15px;
+    width:15px;
+    margin-bottom: -50px;
+}
+
+.strict{
+    height:15px;
+    width:15px;
+    margin-top: 0px;
+}
+
+form{
+    font-size:15px;
+    margin-top: -30px;
+}

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+body{
+   background: linear-gradient(0deg, rgba(185,163,148,1) 50%, rgba(212,196,199,1) 100%) no-repeat;
+   font-family:"Zilla Slab", Serif;
+   text-align: center;
+}
+
+#clock {
+	width: 200px;
+	height: 200px;
+	background: blueviolet;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+   display: block;
+   margin: 0 auto;
+   
+}
+
+#clockIn{
+  position: relative;
+float: left;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+   font-size: 2em;
+}
+
+h3{
+   display:inline;
+}
+
+#Time{
+   margin-top: 50px;
+   background-color:#586A6A;
+   width: 300px;
+   height: 300px;
+   display: inline-block;
+   margin: 0 auto;
+   border-radius: 50%;
+   margin-right: 50px;
+}
+
+footer{
+   margin-top: 570px;
+}
+
+h1{
+   margin-top: 5%;
+}
+
+h2{
+   font-size:150%;
+    margin-top: 10%;
+}

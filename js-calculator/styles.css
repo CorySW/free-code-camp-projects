@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Cantata+One');
+
+body {
+   background-color: grey;
+}
+
+#screen {
+   background-color: #fff;
+   width: 220px;
+   height: 50px;
+   margin: 0 auto;
+   display:table;
+}
+
+#calc {
+   width: 300px;
+   margin: 0 auto;
+   border: 2px solid ;
+   box-shadow: 1px 10px 10px;
+   text-align: center;
+   border-radius:15px;
+   background-color:rgb(255, 104, 90);
+   max-width: 100%;
+}
+
+button{
+   cursor: pointer;
+   color: #fff;
+}
+
+#KeyClear {
+   margin-left: 30%;
+   text-align: center;
+}
+
+#LastKeys{
+   cursor: pointer;
+}
+
+#KeyEqual{
+   text-align: center;
+   cursor: pointer;
+}
+
+#operator{
+   text-align: center;
+   cursor: pointer;
+   color: #fff;
+   margin-top: 50px;
+}
+
+h4{
+   margin-top: -50px;
+   font-family: 'Cantata One', serif;
+}
+
+#steps{
+    display:table-cell;
+ vertical-align:middle;
+   color: rgba(0,0,0,0.60);
+}
+
+footer{
+   text-align:center;
+   margin-top:100px;
+}
+
+.row{
+   text-align:center;
+}
+
+.btn{
+   margin-left: 15px;
+   margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    h4{
+        margin-top: 0px;
+    }
+}

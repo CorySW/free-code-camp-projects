@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Raleway');
+body {
+   background-color: #ffcdb2;
+}
+p {
+   text-align: center;
+   padding: 5%;
+}
+  
+.jumbotron {
+   text-align: center;
+   font-family: 'Playfair Display', serif;
+   background-color:#B5838D;
+}
+
+.row {
+   background-color:#FFB4A2;
+   font-family: 'Raleway', sans-serif;
+   font-size: 25px;
+   width: 1070px;
+   margin-top: 2%;
+   max-width: 100%;
+}
+
+#frame {
+   padding: 3%;
+}
+
+img{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+}
+
+
+#followerInfo {
+background-color:#FFB4A2;
+}
