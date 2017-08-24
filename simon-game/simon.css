@@ -62,7 +62,6 @@ body{
    border: solid 15px;
    margin-top:160px;
    margin-left:170px;
-   cursor:pointer;
 }
 
 h1{
@@ -71,28 +70,26 @@ h1{
 
 #scr{
    font-family: 'Playfair Display', serif;
-   font-size: 40%;
-   margin-top: -25%;
+   font-size:15px;
 }
 
 #win{
-  font-size: 25px;
-  margin-top: 60px;
+   font-size:12px;
+   margin-top:15px;
 }
 
-.normal{
-    height:15px;
-    width:15px;
-    margin-bottom: -50px;
+#round{
+   font-size:15px;
 }
 
-.strict{
-    height:15px;
-    width:15px;
-    margin-top: 0px;
+#str{
+    font-size:12px;
 }
 
-form{
-    font-size:15px;
-    margin-top: -30px;
+.btn{
+   font-size:11px;
+}
+
+footer{
+   margin-top:550px;
 }

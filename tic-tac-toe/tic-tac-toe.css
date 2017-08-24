@@ -4,11 +4,74 @@ body{
 
 .game{
    margin-top:15px;
-   width:90px;
-   height:90px;
+   width:100px;
+   height:100px;
    margin-left:25px;
 }
 
 .row{
-    margin-left: 22%;
+    margin-left: 30%;
+}
+
+@media (max-width: 1100px) {
+    .game{
+   width:90px;
+   height:90px;
+   margin-left:20px;
+}
+}
+
+@media (max-width: 400px) {
+    .row{
+    margin-left: 2%;
+}
+    .game{
+   margin-top:15px;
+   width:70px;
+   height:70px;
+   margin-left:20px;
+}
+
+}
+
+@media (max-width: 500px) {
+    .row{
+    margin-left: 0%;
+}
+    .game{
+   margin-top:15px;
+   width:20px;
+   height:20px;
+   margin-left:20px;
+}
+
+}
+
+@media (max-width: 950px) {
+    .row{
+    margin-left: 24%;
+}
+    .game{
+   margin-top:15px;
+   width:80px;
+   height:80px;
+   margin-left:20px;
+}
+
+}
+
+@media (max-width: 900px) {
+    .row{
+    margin-left: 15%;
+}
+}
+
+@media (max-width: 400px) {
+    .row{
+    margin-left: 10%;
+}
+    .game{
+   width:60px;
+   height:60px;
+}
 }

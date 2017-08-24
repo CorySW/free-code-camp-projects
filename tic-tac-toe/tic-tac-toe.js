@@ -1,49 +1,134 @@
-var Player;
-var Computer;
-var toggle = -1;
-var grid = $(".game").toArray();
+let toggle = -1;
+
 
    $(".AskO").on("click", function() {
    $(".game").on("click", function() {
-      $(this).html("O");
-      Player = "O";
+         gridVerif();
+      $(this).html("O").addClass("TickedO").removeClass("noTick TickedX").unbind();
       toggle *=-1;
-      while(toggle === 1){
+      if(toggle === 1){
          $(".game").on("click", function() {
-      $(this).html("X");
-      Player = "X";
+             gridVerif();
+      $(this).html("X").addClass("TickedX").removeClass("noTick TickedO").unbind();
       });
-         break;
       }
-       while(toggle === -1){
+       if(toggle === -1){
          $(".game").on("click", function() {
-      $(this).html("O");
-      Player = "O";
+             gridVerif();
+      $(this).html("O").addClass("TickedO").removeClass("noTick TickedX").unbind();
       });
-          break;
       }
    });
-
 });
 
 $(".AskX").on("click", function() {
    $(".game").on("click", function() {
-      $(this).html("X");
-      Player = "X";
+      $(this).html("X").addClass("TickedX").removeClass("noTick TickedO").unbind();
       toggle *=-1;
-     while(toggle === 1){
+       gridVerif();
+     if(toggle === 1){
          $(".game").on("click", function() {
-      $(this).html("O");
-      Player = "O";
+      $(this).html("O").addClass("TickedO").removeClass("noTick TickedX").unbind();
+             gridVerif();
       });
-        break;
    };
-      while(toggle === -1){
+      if(toggle === -1){
          $(".game").on("click", function() {
-      $(this).html("X");
-      Player = "X";
-      });
-          break;
-      };
+      $(this).html("X").addClass("TickedX").removeClass("noTick TickedO").unbind();
+             gridVerif();
+      });};
+  });
 });
+
+const Reset = () => {
+$(".game").empty().removeClass("TickedO TickedX").addClass("noTick").unbind(); 
+    setTimeout(() =>{$("#title").html("TIC TAC TOE");}, 1000)
+}
+
+const gridVerif = () => {
+  if($("#1").hasClass("TickedO") && $("#2").hasClass("TickedO") && $("#3").hasClass("TickedO")){
+      $("#title").html("O won");
+
+      Reset();
+  }  
+ else if($("#4").hasClass("TickedO") && $("#5").hasClass("TickedO") && $("#6").hasClass("TickedO")){
+      $("#title").html("O won");
+
+      Reset();
+  }  
+  else if($("#7").hasClass("TickedO") && $("#8").hasClass("TickedO") && $("#9").hasClass("TickedO")){
+      $("#title").html("O won");
+
+      Reset();
+  }  
+  else if($("#1").hasClass("TickedO") && $("#5").hasClass("TickedO") && $("#9").hasClass("TickedO")){
+      $("#title").html("O won");
+
+      Reset();
+  }  
+ else if($("#3").hasClass("TickedO") && $("#5").hasClass("TickedO") && $("#7").hasClass("TickedO")){
+      $("#title").html("O won");
+
+      Reset();
+  }  
+ else if($("#3").hasClass("TickedO") && $("#6").hasClass("TickedO") && $("#9").hasClass("TickedO")){
+      $("#title").html("O won");
+
+      Reset();
+  }  
+ else if($("#1").hasClass("TickedO") && $("#4").hasClass("TickedO") && $("#7").hasClass("TickedO")){
+      $("#title").html("O won");
+
+      Reset();
+  }  
+ else if($("#2").hasClass("TickedO") && $("#5").hasClass("TickedO") && $("#8").hasClass("TickedO")){
+      $("#title").html("O won");
+
+      Reset();
+  }  
+    
+ if($("#1").hasClass("TickedX") && $("#2").hasClass("TickedX") && $("#3").hasClass("TickedX")){
+      $("#title").html("X won");
+
+      Reset();
+  }  
+ else if($("#4").hasClass("TickedX") && $("#5").hasClass("TickedX") && $("#6").hasClass("TickedX")){
+      $("#title").html("X won");
+
+      Reset();
+  }  
+  else if($("#7").hasClass("TickedX") && $("#8").hasClass("TickedX") && $("#9").hasClass("TickedX")){
+      $("#title").html("X won");
+
+      Reset();
+  }  
+  else if($("#1").hasClass("TickedX") && $("#5").hasClass("TickedX") && $("#9").hasClass("TickedX")){
+      $("#title").html("X won");
+
+      Reset();
+  }  
+ else if($("#3").hasClass("TickedX") && $("#5").hasClass("TickedX") && $("#7").hasClass("TickedX")){
+      $("#title").html("X won");
+
+      Reset();
+  }  
+ else if($("#3").hasClass("TickedX") && $("#6").hasClass("TickedX") && $("#9").hasClass("TickedX")){
+      $("#title").html("X won");
+
+      Reset();
+  }  
+ else if($("#1").hasClass("TickedX") && $("#4").hasClass("TickedX") && $("#7").hasClass("TickedX")){
+      $("#title").html("X won");
+
+      Reset();
+  }  
+ else if($("#2").hasClass("TickedX") && $("#5").hasClass("TickedX") && $("#8").hasClass("TickedX")){
+      $("#title").html("X won");
+
+      Reset();
+  }
+};
+
+$("#reset").on("click",function(){
+   $(".game").removeClass("TickedX TickedO").addClass("noTick").empty().unbind();
 });

@@ -1,0 +1,15 @@
+.block {
+   background-color: ;
+   color: black;
+   padding: 50px;
+   width: 50%;
+   margin-right: auto;
+   margin-left: auto;
+   margin-bottom: 5%;
+   margin-top:5%;
+}
+
+body {
+text-align: center;
+background-color:sandybrown;
+}

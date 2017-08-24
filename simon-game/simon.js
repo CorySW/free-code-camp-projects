@@ -1,152 +1,171 @@
-const btns = $(".b").toArray();
-const redSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
-const yelSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
-const greSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
-const bluSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
+const redSound = new Audio(
+   "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
+);
+const yelSound = new Audio(
+   "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"
+);
+const greSound = new Audio(
+   "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"
+);
+const bluSound = new Audio(
+   "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
+);
 let Score = 0;
+let round = 0;
+let btns = ["red", "yellow", "green", "blue"];
 let Pattern = [];
 let UsedPatt = [];
 let User = [];
 let IsStrict = false;
 let isRunning = false;
+let isOn = false;
 
-function MyRand() {
- Pattern.push(Math.floor(Math.random() * 4));
-}
+const PattChoose = () => {
+   Pattern.push(btns[Math.floor(Math.random() * 4)]);
+   console.log(Pattern);
+};
 
-function Btnred() {
-  $(".btn1").css("background-color","white");
-   setInterval(function(){$(".btn1").css("background-color","#dd4b3e");}, 1000);
-   User.push(0);
-   redSound.play();
-}
-
-function Btnyellow() {
- $(".btn2").css("background-color","white");
-   setInterval(function(){$(".btn2").css("background-color","#ffea37");}, 1000);
-   User.push(1);
-   yelSound.play();
-}
-
-function Btngreen() {
-  $(".btn3").css("background-color","white");
-   setInterval(function(){$(".btn3").css("background-color","#3edd4b");},1000);
-   User.push(2);
-   greSound.play();
-}
-
-function Btnblu() {
- $(".btn4").css("background-color","white");
-   setInterval(function(){$(".btn4").css("background-color","#4b3edd");}, 1000);
-   User.push(3);
-   bluSound.play();
-}
-
-function PatternDisplay() {
-   for(var i=0;i<20;i++){
-    switch(Pattern[i]){
-       case  0:
-          setTimeout(function(){ Btnred();},i * 1000);
-          break;
-       case  1:
-          setTimeout(function(){ Btnyellow();}, i * 1000);
-          break;
-       case 2:
-          setTimeout(function(){ Btngreen();}, i * 1000);
-          break;
-       case 3:
-          setTimeout(function(){ Btnblu();},i * 1000);
-          break;
-               }
+const nextPlay = color => {
+   if (color === Pattern[Score]) {
+      if (Score === Pattern.length - 1) {
+         $("#win").html("Pattern completed");
+         setTimeout(()=> $("#win").html(""), 500);
+         Score = 0;
+         round++;
+         $("#scr").html("SCORE : " + Score);
+         $("#round").html("ROUND " + round);
+         PattChoose();
+         setTimeout(() => Playing(), 1000);
+      } else {
+         Score++;
+         $("#scr").html("SCORE : " + Score);
+         $("#round").html("ROUND " + round);
+         $(".mainbtn").unbind("click").css("cursor", "initial");
+      }
+   } else {
+      $("#win").html("try again");
+      Score = 0;
+      Pattern.pop();
+      User.pop();
+      setTimeout(() => Playing(), 1000);
+      if(IsStrict === true){
+      $("#win").html("Missed, Restarting")
+      setTimeout(()=> $("#win").html(""), 500);
+         Pattern = [];
+         User = [];
+         Score = 0;
+         round = 0;
+      }
    }
-}
+   if (round === 20) {
+      Score = 0;
+      round = 0;
+      alert("you beat the game !");
+      $("#win").html("PLAY AGAIN");
+   }
+};
 
-$(".btn1").on("click",function(){
-   Btnred();
-   IsStrict ? StrictVerify() : Verify();
-   isRunning ? $(".b").unbind("click") : GameOn();
+$(".btn1").on("click", () => {
+   User.push("red");
+   console.log(User);
+   if (isOn === true) {
+      nextPlay("red");
+   }
+   $(".btn1").css("opacity", "0.4");
+   redSound.play();
+   setTimeout(() => {
+      $(".btn1").css("opacity", "1");
+   }, 500);
 });
 
-$(".btn2").on("click",function(){
-   Btnyellow();
-   IsStrict ? StrictVerify() : Verify();
-   isRunning ? $(".b").unbind("click") : GameOn();
+$(".btn2").on("click", () => {
+   User.push("yellow");
+   console.log(User);
+   if (isOn === true) {
+      nextPlay("yellow");
+   }
+   $(".btn2").css("opacity", "0.4");
+   yelSound.play();
+   setTimeout(() => {
+      $(".btn2").css("opacity", "1");
+   }, 500);
 });
 
-$(".btn3").on("click",function(){
-   Btngreen();
-   IsStrict ? StrictVerify() : Verify();
+$(".btn3").on("click", () => {
+   User.push("green");
+   console.log(User);
+   if (isOn === true) {
+      nextPlay("green");
+   }
+   $(".btn3").css("opacity", "0.4");
+   greSound.play();
+   setTimeout(() => {
+      $(".btn3").css("opacity", "1");
+   }, 500);
 });
 
-$(".btn4").on("click",function(){
-   Btnblu();
-   IsStrict ? StrictVerify() : Verify();
+$(".btn4").on("click", () => {
+   User.push("blue");
+   console.log(User);
+   if (isOn === true) {
+      nextPlay("blue");
+   }
+   $(".btn4").css("opacity", "0.4");
+   bluSound.play();
+   setTimeout(() => {
+      $(".btn4").css("opacity", "1");
+   }, 500);
 });
 
-function Reset() {
+const showPatt = (step, i) => {
+   setTimeout(() => {
+      if (step == "red") {
+         redSound.play();
+      } else if (step == "green") {
+         greSound.play();
+      } else if (step == "yellow") {
+         yelSound.play();
+      } else if (step == "blue") {
+         bluSound.play();
+      }
+      console.log(step);
+      $("#"+step).css("opacity", "0.4");
+
+      setTimeout(function() {
+         $("#"+step).css("opacity", "1");
+      }, 600);
+   }, i * 650);
+};
+
+const Playing = () => {
+   PattChoose();
+   for (var i = 0; i < Pattern.length; i++) {
+      showPatt(Pattern[i], i);
+   }
+};
+
+$("#str").on("click", () => (IsStrict = true));
+
+$("#play").on("click", () => {
+   isOn = true;
+   $("#play").hide();
+   $("#reset").show();
+   User = [];
+   Playing();
+});
+
+$("#reset").on("click", () => {
+   Score = 0;
    User = [];
    Pattern = [];
-   Score = 0;
-   $("#scr").html("SCORE : " + Score);
-   $("#win").html("PLAY");
-   $(".mainbtn").on("click",function(){
-       MyRand();
-       PatternDisplay();
-   });
-  $(".mainbtn").css("cursor","pointer");
-}
-
-function GameOn() {
-   PatternDisplay();
-   MyRand();
+   round = 0;
+   IsStrict = false;
+   $("#play").show();
+   $("#reset").hide();
    $("#win").html("");
-   $(".mainbtn").unbind("click");
-   $(".mainbtn").css("cursor","initial");
-   UsedPatt.push(Pattern);
-}
-
-function StrictVerify() {
-    for(var i=0;i<Pattern[i];i++){
-    if(Pattern[i] != User[i]){
-        Reset();
-        alert("you lost this level, resetting");
-    }
-    else if(Pattern[i] === User[i]){
-        GameOn();
-        $("#win").html("won that level");
-        if(Score == 20){
-        alert("the game is over, resetting");
-        Reset();
-    }
-    }
-}
-}
-
-function Verify() {
-for(var i=0;i<Pattern[i];i++){
-    if(Pattern[i] != User[i]){
-        $("#win").html("lost that level");
-    }
-    else if(Pattern[i] === User[i]){
-        GameOn();
-        $("#scr").html("SCORE : " + Score);
-        Score++;
-        $("#win").html("won that level");
-        if(Score == 20){
-        Reset();
-        alert("the game is over, resetting");
-    }
-    }
-}
-}
-
-$("#scr").html("SCORE : " + Score);
-
-$(".mainbtn").on("click",function(){
-   MyRand();
-   PatternDisplay();
+   $("#scr").html("SCORE : " + Score);
+   $("#round").html("ROUND " + round);
+   $("#play").on("click", () => Playing());
 });
 
-$("#strict").on("click",function(){
-   IsStrict = true; 
-});
+$(document).ready(() => {$("#reset").hide();})

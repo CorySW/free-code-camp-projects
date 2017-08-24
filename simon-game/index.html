@@ -3,24 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>FCC SIMON GAME</title>
-    <link rel="stylesheet" href="simon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="simon.css">
   </head>
   <body>
-    <h1>SIMON GAME<h1>
-    <br>
-    <form>
-    <section class="radio">
-    <label><input type="radio" name="optradio" id="strict">Strict</label>
-    </section>
-    </form>
-    <br>
-    <section class="main">
-     <section class="btn1 b"></section>
-     <section class="btn2 b"></section>
-     <section class="btn3 b"></section>
-     <section class="btn4 b"></section>
-     <section class="mainbtn"><h1 id="win">PLAY<h1><h2 id="scr"><h2></section>
-     </section>
+<h1>SIMON GAME</h1>
+<br>
+<section class="main">
+ <section class="btn1" id="red"></section>
+ <section class="btn2" id="yellow"></section>
+ <section class="btn3" id="green"></section>
+ <section class="btn4" id="blue"></section>
+ <section class="mainbtn">
+  <h5 id="win"></h5>
+  <h4 id="scr">SCORE : 0</h4>
+  <button class="btn btn-primary" id="play">PLAY</button>
+  <button class="btn btn-primary" id="reset">RESET</button>
+  <h4 id="round">ROUND 0</h4>
+  <input id="str" type="checkbox"> Strict
+        </section>
+      </section>
+<footer></footer>
+        <p>Coded with<i class="fa fa-heart"></i> by Cory Whyte, 2017.</p></footer>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <script src="simon.js"></script>
   </body>
