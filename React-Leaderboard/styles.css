@@ -1,0 +1,27 @@
+body {
+  background: url("https://s-media-cache-ak0.pinimg.com/originals/d8/7b/25/d87b2596ebcb178560488cd81993af2d.jpg");
+  color: green; }
+
+th {
+  width: 700px;
+  background: #77AF9C; }
+
+td {
+  background: #285943;
+  color: green; }
+
+a {
+  color: green; }
+
+a:hover, a:visited {
+  color: #1A936F; }
+
+img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; }
+
+footer {
+  margin-top: 150px; }
+
+/*# sourceMappingURL=styles.css.map */
