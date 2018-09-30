@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.light {
+  background-color: azure;
+}
+
+.dark {
+  background-color: grey;
+}
