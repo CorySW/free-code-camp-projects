@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+  }
+  
+  #user {
+    height:150px;
+    width:210px;
+    background:yellow;
+    margin-top: 100px;
+    margin-left: 700px;
+  }
+  
+  #exercise {
+    height:250px;
+    width:250px;
+    background:yellow;
+    margin-top: -150px;
+    margin-left: 1000px;
+    border-radius:50%;
+  }
+  
+  input[type="submit"] {
+   width:200px;
+   box-shadow: 4px 12px 20px 0px #E4E5BC;
+  }
+  
+  input[type="text"] {
+   width:200px;
+  }
