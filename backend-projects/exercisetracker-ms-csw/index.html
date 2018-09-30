@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EXERCISE TRACKER</title>
+    <meta name="description" content="An exercise tracker, a project from free code camp's microservice project list">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+     <h1>FCC MICROSERVICE : EXERCISE TRACKER</h1>
+    <section id="user">
+      <h5>User name :</h5>
+    <form action="/exercise/generateUser" method="post">
+     <input type="text" name="UserName" placeholder="Enter a username here"><br>
+      <input type="submit" value="Submit">
+    </form>
+    </section>
+
+    <section id="exercise">
+      <h5>Add exercise(s)</h5>
+    <form action="/exercise/addEx" method="post">
+      <input type="text" name="UserId" placeholder="Enter the UserId*"><br>
+      <input type="text" name="Desc" placeholder="Enter the description*"><br>
+      <input type="text" name="Duration" placeholder="Enter the Duration*"><br>
+      <input type="text" name="Date" placeholder="Enter the date"><br>
+      <input type="submit" value="Submit">
+    </form>
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="/client.js" defer></script>
+  </body>
+</html>

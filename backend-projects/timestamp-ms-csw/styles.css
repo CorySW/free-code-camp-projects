@@ -1,0 +1,10 @@
+body{
+    text-align:center;
+    background-color:skyblue;
+  }
+  
+  .jumbotron{
+    width:550px; 
+    margin:0 auto;
+    border-radius:15%;
+  }
