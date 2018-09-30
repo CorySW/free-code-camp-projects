@@ -1,11 +1,15 @@
 const Mongoose = require('mongoose');
+const shortid = require('shortid');
 const Schema = Mongoose.Schema;
 
 const MyExSchema = new Schema({
-    userID: String,
+  _id: {
+  'type': String,
+  'default': shortid.generate
+},
     desc: String,
     duration: String
-}, {timestamps:false}, { versionKey: false });
+}, { versionKey: false });
 
 const ExModel = Mongoose.model('exercises', MyExSchema);
 

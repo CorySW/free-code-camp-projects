@@ -1,35 +1,33 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const Mongoose = require('mongoose');
+const shortid = require('shortid')
 const app = express();
 const UserModel = require('./DB/UserDB');
-const ExModel = require('./DB/ExDB');
-const regex = /([a-z])\d([a-z])+|([a-z])+\d|([a-z])+/gi;
+const ExModel = require('./DB/ExerciseDB');
+const db = Mongoose.connection;
 
 Mongoose.connect(process.env.MONGOLAB_URI, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+db.once("open", () => console.log("connected !"))
+db.on("error", (err) => console.log(err))
+
 app.post('/exercise/generateUser', (req, res) => {
   
   let new_user=req.body.UserName;
   
-  function makeid() {
-  let text = Math.random().toString(36).substring(7);
-  return text;
-}
-  
   let DBuser = new UserModel(
       {
-        userNAME: new_user,
-        userID: makeid()
+        userNAME: new_user
       }
     );
   UserModel.findOne({userNAME: new_user}, (err, existing) => {
   if(existing == null) {
   DBuser.save()
-  res.json({user:DBuser.userNAME, id: DBuser.userID})
+  res.json(DBuser)
   }
   else {
   res.send("this username has already been taken, sorry")
@@ -38,42 +36,49 @@ app.post('/exercise/generateUser', (req, res) => {
 });
 
 app.post('/exercise/addEx', (req, res) => {
+  const user_id = req.body.UserId;
+  const desc = req.body.Desc;
+  const duration= req.body.Duration;
   
-  let user_id = req.body.UserId;
-  let desc = req.body.Desc;
-  let duration= req.body.Duration;
-  
-  let DBex = new ExModel(
+  const DBex = new ExModel(
       {
-        userID: user_id,
         desc: desc,
         duration: duration
       }
     );
-  
-  if(regex.test(user_id)) {
     
-    ExModel.findOne({userID: user_id}, (err, id) => {
-      
-      if(id == null) {
-      DBex.save()
-      res.json({userID:DBex.userID,desc:DBex.desc,duration:DBex.duration})
+    UserModel.findById(user_id, (err, users) => {
+      if(!users) {
+      res.send("invalid id")
       }
-    });
-    
-  res.json({userID:DBex.userID,desc:DBex.desc,duration:DBex.duration})
-  }
-  
   else {
-  res.send("invalid id")
+    DBex.save()
+    res.json({user: user_id, desc: DBex.desc, duration: DBex.duration})
   }
+  });
   
+});
+
+app.get('/app/exercises/:id', (req, res) => {
+  let { id } = req.params;
+   UserModel.findById(id, (err, userId) => {
+      if(userId) {
+      ExModel.find({}, (err, exercises) => {
+      var Map = {};
+      exercises.forEach(function(user) {
+      Map[user._id] = user;
+    });
+        res.send(Map);
+      });
+      }
+  else {
+    res.send("invalid id")
+  }
+  });
 });
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-const listener = app.listen(process.env.PORT, () => {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+app.listen(process.env.PORT);

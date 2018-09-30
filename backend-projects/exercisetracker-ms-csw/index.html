@@ -23,14 +23,16 @@
     <section id="exercise">
       <h5>Add exercise(s)</h5>
     <form action="/exercise/addEx" method="post">
-      <input type="text" name="UserId" placeholder="Enter the UserId*"><br>
-      <input type="text" name="Desc" placeholder="Enter the description*"><br>
-      <input type="text" name="Duration" placeholder="Enter the Duration*"><br>
+      <input type="text" name="UserId" placeholder="Enter the UserId*" required><br>
+      <input type="text" name="Desc" placeholder="Enter the description*" required><br>
+      <input type="text" name="Duration" placeholder="Enter the Duration*" required><br>
       <input type="text" name="Date" placeholder="Enter the date"><br>
       <input type="submit" value="Submit">
     </form>
     </section>
-    
+    <p>
+      to get users' exercise log: <code>https://exercisetrack-ms-csw.glitch.me/app/exercises/<b>userID</b></code>
+    </p>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="/client.js" defer></script>
   </body>
